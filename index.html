@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thazmert — خدمات الرش الزراعي بالطائرات | قسنطينة</title>
+  <meta name="description" content="Thazmert — خدمات الرش الزراعي بالطائرات بدون طيار في قسنطينة الجزائر. رش المحاصيل، نثر الأسمدة، رش الأشجار، تحليل التربة بأسعار تنافسية." />
+  <meta name="keywords" content="رش زراعي, طائرة بدون طيار, درون زراعي, قسنطينة, الجزائر, thazmert" />
+
+  <!-- Google Fonts: Tajawal -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN (v3 Play) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Tajawal', 'sans-serif'] },
+          colors: { brand: { DEFAULT: '#16a34a', dark: '#064e3b', light: '#d1fae5' } }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="min-h-screen bg-white text-gray-900 overflow-x-hidden" style="font-family: 'Tajawal', sans-serif;">
+
+  <!-- ════════════════════════════════════
+       FLOATING WHATSAPP BUTTON
+  ════════════════════════════════════ -->
+  <a href="https://wa.me/213673442856" target="_blank" rel="noreferrer"
+     class="fixed bottom-6 left-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform"
+     title="تواصل عبر واتساب" aria-label="واتساب">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+         stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+  </a>
+
+  <!-- ════════════════════════════════════
+       NAVBAR
+  ════════════════════════════════════ -->
+  <nav id="navbar" class="fixed w-full z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-20 items-center">
+
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-3 scroll-link">
+          <img src="assets/logo.png" alt="Thazmert Logo" class="w-11 h-11 object-contain" />
+          <div class="flex flex-col leading-none">
+            <span id="logo-name" class="font-black text-2xl tracking-tight text-white transition-colors">Thazmert</span>
+            <span id="logo-sub" class="text-xs text-green-300 transition-colors">خدمات الرش بالطائرات</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden lg:flex items-center gap-1" id="desktop-nav">
+          <a href="#home"       class="nav-link scroll-link px-4 py-2 rounded-lg text-sm font-medium transition-all text-white/90 hover:text-white hover:bg-white/10" data-section="home">الرئيسية</a>
+          <a href="#services"   class="nav-link scroll-link px-4 py-2 rounded-lg text-sm font-medium transition-all text-white/90 hover:text-white hover:bg-white/10" data-section="services">خدماتنا</a>
+          <a href="#drone"      class="nav-link scroll-link px-4 py-2 rounded-lg text-sm font-medium transition-all text-white/90 hover:text-white hover:bg-white/10" data-section="drone">الطائرة T100</a>
+          <a href="#why-us"     class="nav-link scroll-link px-4 py-2 rounded-lg text-sm font-medium transition-all text-white/90 hover:text-white hover:bg-white/10" data-section="why-us">لماذا نحن؟</a>
+          <a href="#calculator" class="nav-link scroll-link px-4 py-2 rounded-lg text-sm font-medium transition-all text-white/90 hover:text-white hover:bg-white/10" data-section="calculator">الأسعار</a>
+          <a href="#faq"        class="nav-link scroll-link px-4 py-2 rounded-lg text-sm font-medium transition-all text-white/90 hover:text-white hover:bg-white/10" data-section="faq">الأسئلة الشائعة</a>
+          <a href="#contact"    class="mr-2 bg-green-600 text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-green-500 transition-all shadow-lg flex items-center gap-2 scroll-link">
+            <i data-lucide="phone" class="w-4 h-4"></i> طلب خدمة
+          </a>
+        </div>
+
+        <!-- Mobile Toggle -->
+        <button id="menu-toggle" class="lg:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors" aria-label="القائمة">
+          <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
+          <i data-lucide="x"    id="menu-icon-close" class="w-6 h-6 hidden"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-2xl">
+      <div class="px-4 pt-3 pb-6 space-y-1">
+        <a href="#home"       class="block text-right px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-xl font-medium transition-colors scroll-link">الرئيسية</a>
+        <a href="#services"   class="block text-right px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-xl font-medium transition-colors scroll-link">خدماتنا</a>
+        <a href="#drone"      class="block text-right px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-xl font-medium transition-colors scroll-link">الطائرة T100</a>
+        <a href="#why-us"     class="block text-right px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-xl font-medium transition-colors scroll-link">لماذا نحن؟</a>
+        <a href="#calculator" class="block text-right px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-xl font-medium transition-colors scroll-link">الأسعار</a>
+        <a href="#faq"        class="block text-right px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-xl font-medium transition-colors scroll-link">الأسئلة الشائعة</a>
+        <a href="#contact"    class="block text-center px-4 py-3 mt-3 bg-green-600 text-white rounded-xl font-bold hover:bg-green-700 transition-colors scroll-link">طلب خدمة الآن</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════
+       HERO
+  ════════════════════════════════════ -->
+  <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1724141552952-1b44bc26b9d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600"
+           alt="طائرة رش زراعي" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-bl from-green-950/85 via-green-900/75 to-black/80"></div>
+      <div class="absolute top-1/4 left-1/3 w-96 h-96 bg-green-400/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-28 pb-20">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-green-500/20 border border-green-400/30 text-green-300 text-sm font-semibold mb-8 backdrop-blur-sm">
+          <span class="pulse-dot w-2 h-2 bg-green-400 rounded-full inline-block"></span>
+          قسنطينة، الجزائر — خدمة نشطة
+        </div>
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-6">
+          مستقبل الزراعة <span class="text-green-400">الجزائرية</span><br />في يدك
+        </h1>
+        <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl leading-relaxed">
+          نوفر لك خدمات الرش والنثر الزراعي بالطائرات بدون طيار بدقة متناهية وبأسعار تنافسية. وفّر وقتك، ارفع إنتاجيتك، وحافظ على محاصيلك.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#calculator" class="bg-green-500 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-green-400 transition-all flex items-center justify-center gap-2 shadow-2xl shadow-green-600/30 scroll-link">
+            <i data-lucide="calculator" class="w-5 h-5"></i>
+            احسب تكلفتك مجاناً
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          </a>
+          <a href="https://wa.me/213673442856" target="_blank" rel="noreferrer"
+             class="bg-white/10 backdrop-blur-md border border-white/25 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/20 transition-all flex items-center justify-center gap-2">
+            <i data-lucide="message-circle" class="w-5 h-5 text-green-400"></i>
+            تواصل معنا واتساب
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Stats -->
+      <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-5 text-white text-center hover:bg-white/15 transition-colors">
+          <i data-lucide="trending-up" class="w-6 h-6 text-green-400 mx-auto mb-2"></i>
+          <div class="text-3xl font-black mb-1">500+</div>
+          <div class="text-sm text-gray-300">هكتار مُعالج</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-5 text-white text-center hover:bg-white/15 transition-colors">
+          <i data-lucide="star" class="w-6 h-6 text-green-400 mx-auto mb-2"></i>
+          <div class="text-3xl font-black mb-1">120+</div>
+          <div class="text-sm text-gray-300">عميل راضٍ</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-5 text-white text-center hover:bg-white/15 transition-colors">
+          <i data-lucide="zap" class="w-6 h-6 text-green-400 mx-auto mb-2"></i>
+          <div class="text-3xl font-black mb-1">4</div>
+          <div class="text-sm text-gray-300">خدمات متخصصة</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-5 text-white text-center hover:bg-white/15 transition-colors">
+          <i data-lucide="award" class="w-6 h-6 text-green-400 mx-auto mb-2"></i>
+          <div class="text-3xl font-black mb-1">99%</div>
+          <div class="text-sm text-gray-300">نسبة رضا العملاء</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bounce-anim absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 flex flex-col items-center gap-1">
+      <span class="text-xs">تمرير للأسفل</span>
+      <i data-lucide="chevron-down" class="w-5 h-5"></i>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       SERVICES
+  ════════════════════════════════════ -->
+  <section id="services" class="py-28 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="inline-block text-green-600 bg-green-50 border border-green-100 px-4 py-1 rounded-full text-sm font-bold mb-4">خدماتنا</span>
+        <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">حلول زراعية متكاملة</h2>
+        <div class="w-16 h-1.5 bg-green-500 mx-auto rounded-full mb-5"></div>
+        <p class="text-gray-500 text-lg">نقدم مجموعة شاملة من الخدمات الزراعية المتخصصة بأحدث التقنيات وأعلى معايير الجودة.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- Service 1 — رش المحاصيل -->
+        <div class="relative bg-white rounded-3xl border border-emerald-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 service-card">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1585428311604-98738fc5687a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600"
+                 alt="رش المحاصيل" class="w-full h-full object-cover card-img" />
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-500 to-green-600 opacity-70"></div>
+            <div class="absolute top-4 right-4 bg-white text-green-700 text-xs font-bold px-3 py-1 rounded-full shadow-lg">الأكثر طلباً</div>
+            <div class="absolute bottom-4 right-4 w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg">
+              <i data-lucide="leaf" class="w-6 h-6 text-green-600"></i>
+            </div>
+          </div>
+          <div class="p-7">
+            <h3 class="text-2xl font-black text-gray-900 mb-3">رش المحاصيل</h3>
+            <p class="text-gray-500 leading-relaxed mb-6">رش دقيق وموحد للمحاصيل الزراعية لحمايتها من الآفات والأمراض. يضمن طائراننا توزيعاً مثالياً للمبيدات بأقل هدر ممكن.</p>
+            <div class="flex items-center justify-between">
+              <div class="inline-flex items-center gap-1 bg-emerald-50 rounded-xl px-4 py-2">
+                <span class="text-2xl font-black text-green-700">4,000</span>
+                <span class="text-green-600 font-bold text-sm">د.ج / هكتار</span>
+              </div>
+              <a href="#calculator" class="flex items-center gap-2 text-green-600 font-bold text-sm hover:text-green-700 scroll-link" data-service="cultures">
+                احسب التكلفة <i data-lucide="arrow-left" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 2 — نثر الأسمدة -->
+        <div class="relative bg-white rounded-3xl border border-lime-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 service-card">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1732275115492-13041e773431?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600"
+                 alt="نثر الأسمدة" class="w-full h-full object-cover card-img" />
+            <div class="absolute inset-0 bg-gradient-to-t from-lime-500 to-green-500 opacity-70"></div>
+            <div class="absolute bottom-4 right-4 w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg">
+              <i data-lucide="sprout" class="w-6 h-6 text-green-600"></i>
+            </div>
+          </div>
+          <div class="p-7">
+            <h3 class="text-2xl font-black text-gray-900 mb-3">نثر الأسمدة</h3>
+            <p class="text-gray-500 leading-relaxed mb-6">توزيع الأسمدة الصلبة والسائلة بشكل متساوٍ على كامل المساحة لتعزيز نمو النباتات وضمان إنتاجية أعلى.</p>
+            <div class="flex items-center justify-between">
+              <div class="inline-flex items-center gap-1 bg-lime-50 rounded-xl px-4 py-2">
+                <span class="text-2xl font-black text-green-700">5,000</span>
+                <span class="text-green-600 font-bold text-sm">د.ج / هكتار</span>
+              </div>
+              <a href="#calculator" class="flex items-center gap-2 text-green-600 font-bold text-sm hover:text-green-700 scroll-link" data-service="fertilizer">
+                احسب التكلفة <i data-lucide="arrow-left" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 3 — رش الأشجار -->
+        <div class="relative bg-white rounded-3xl border border-teal-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 service-card">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1501070989866-ad2e3ede4cd3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600"
+                 alt="رش الأشجار" class="w-full h-full object-cover card-img" />
+            <div class="absolute inset-0 bg-gradient-to-t from-teal-500 to-emerald-600 opacity-70"></div>
+            <div class="absolute bottom-4 right-4 w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg">
+              <i data-lucide="tree-pine" class="w-6 h-6 text-green-600"></i>
+            </div>
+          </div>
+          <div class="p-7">
+            <h3 class="text-2xl font-black text-gray-900 mb-3">رش الأشجار</h3>
+            <p class="text-gray-500 leading-relaxed mb-6">تغطية شاملة وعميقة لأشجار الفاكهة والبساتين للوقاية من الحشرات والأمراض وضمان موسم حصاد ممتاز.</p>
+            <div class="flex items-center justify-between">
+              <div class="inline-flex items-center gap-1 bg-teal-50 rounded-xl px-4 py-2">
+                <span class="text-2xl font-black text-green-700">6,000</span>
+                <span class="text-green-600 font-bold text-sm">د.ج / هكتار</span>
+              </div>
+              <a href="#calculator" class="flex items-center gap-2 text-green-600 font-bold text-sm hover:text-green-700 scroll-link" data-service="trees">
+                احسب التكلفة <i data-lucide="arrow-left" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 4 — تحليل التربة -->
+        <div class="relative bg-white rounded-3xl border border-green-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 service-card">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1738598665806-7ecc32c3594c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600"
+                 alt="تحليل التربة" class="w-full h-full object-cover card-img" />
+            <div class="absolute inset-0 bg-gradient-to-t from-green-600 to-emerald-700 opacity-70"></div>
+            <div class="absolute top-4 right-4 bg-white text-green-700 text-xs font-bold px-3 py-1 rounded-full shadow-lg">تقنية متطورة</div>
+            <div class="absolute bottom-4 right-4 w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg">
+              <i data-lucide="flask-conical" class="w-6 h-6 text-green-600"></i>
+            </div>
+          </div>
+          <div class="p-7">
+            <h3 class="text-2xl font-black text-gray-900 mb-3">تحليل التربة</h3>
+            <p class="text-gray-500 leading-relaxed mb-6">جمع بيانات دقيقة باستخدام كاميرات متطورة ومستشعرات حرارية لتحليل صحة التربة والمحصول واتخاذ قرارات مدروسة.</p>
+            <div class="flex items-center justify-between">
+              <div class="inline-flex items-center gap-1 bg-green-50 rounded-xl px-4 py-2">
+                <span class="text-2xl font-black text-green-700">7,500</span>
+                <span class="text-green-600 font-bold text-sm">د.ج / هكتار</span>
+              </div>
+              <a href="#calculator" class="flex items-center gap-2 text-green-600 font-bold text-sm hover:text-green-700 scroll-link" data-service="analysis">
+                احسب التكلفة <i data-lucide="arrow-left" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       DRONE T100
+  ════════════════════════════════════ -->
+  <section id="drone" class="py-28 bg-white relative overflow-hidden">
+    <div class="absolute bottom-24 right-10 w-72 h-72 bg-green-50 rounded-full blur-3xl opacity-70"></div>
+    <div class="absolute top-20 left-5 w-56 h-56 bg-emerald-50 rounded-full blur-3xl opacity-60"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-block text-green-600 bg-green-50 border border-green-100 px-4 py-1 rounded-full text-sm font-bold mb-4">تقنيتنا</span>
+        <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">طائرة <span class="text-green-600">T100</span> — القوة الحقيقية</h2>
+        <div class="w-16 h-1.5 bg-green-500 mx-auto rounded-full mb-5"></div>
+        <p class="text-gray-500 text-lg leading-relaxed">نستخدم طائرة الرش الزراعي T100، إحدى أقوى الطائرات الزراعية في العالم، بسعة 100 لتر وتقنيات ذكاء اصطناعي متكاملة لأقصى إنتاجية.</p>
+      </div>
+
+      <!-- Main image + Specs -->
+      <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+
+        <!-- Image -->
+        <div class="relative">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-green-900/20">
+            <img src="assets/drone-main.png" alt="طائرة DJI T100 زراعية" class="w-full h-[420px] object-cover object-top" />
+            <div class="absolute inset-0 bg-gradient-to-t from-green-950/70 via-transparent to-transparent"></div>
+            <div class="absolute top-5 right-5 bg-green-500 text-white text-sm font-black px-4 py-1.5 rounded-full shadow-lg">T100 | الجيل الجديد</div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+              <div class="flex items-end justify-between">
+                <div>
+                  <div class="text-3xl font-black">100 لتر</div>
+                  <div class="text-green-300 text-sm">سعة الخزان</div>
+                </div>
+                <div>
+                  <div class="text-3xl font-black">40 هكتار</div>
+                  <div class="text-green-300 text-sm">كفاءة يومية</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Floating badge -->
+          <div class="absolute -bottom-6 right-8 bg-white rounded-2xl shadow-xl px-5 py-3 flex items-center gap-3 border border-green-100">
+            <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center">
+              <i data-lucide="life-buoy" class="w-5 h-5 text-green-600"></i>
+            </div>
+            <div>
+              <div class="font-black text-gray-900 text-sm">ضمان كامل</div>
+              <div class="text-xs text-gray-500">على كل رحلة</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specs Grid -->
+        <div>
+          <h3 class="text-2xl font-black text-gray-900 mb-2">المواصفات التقنية</h3>
+          <p class="text-gray-500 mb-8">أرقام حقيقية تعكس قدرة استثنائية في خدمة مزارعينا.</p>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            <div class="spec-card bg-white border border-gray-100 hover:border-green-200 hover:shadow-md rounded-2xl p-5 text-center transition-all">
+              <div class="spec-icon w-11 h-11 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-3 transition-colors">
+                <i data-lucide="droplets" class="w-5 h-5 text-green-600 spec-icon-svg transition-colors"></i>
+              </div>
+              <div class="font-black text-gray-900 text-lg">100 لتر</div>
+              <div class="text-xs text-gray-500 mt-1">سعة الخزان</div>
+            </div>
+            <div class="spec-card bg-white border border-gray-100 hover:border-green-200 hover:shadow-md rounded-2xl p-5 text-center transition-all">
+              <div class="spec-icon w-11 h-11 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-3 transition-colors">
+                <i data-lucide="wind" class="w-5 h-5 text-green-600 transition-colors"></i>
+              </div>
+              <div class="font-black text-gray-900 text-lg">9 متر</div>
+              <div class="text-xs text-gray-500 mt-1">عرض الرش</div>
+            </div>
+            <div class="spec-card bg-white border border-gray-100 hover:border-green-200 hover:shadow-md rounded-2xl p-5 text-center transition-all">
+              <div class="spec-icon w-11 h-11 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-3 transition-colors">
+                <i data-lucide="gauge" class="w-5 h-5 text-green-600 transition-colors"></i>
+              </div>
+              <div class="font-black text-gray-900 text-lg">10 م/ث</div>
+              <div class="text-xs text-gray-500 mt-1">السرعة القصوى</div>
+            </div>
+            <div class="spec-card bg-white border border-gray-100 hover:border-green-200 hover:shadow-md rounded-2xl p-5 text-center transition-all">
+              <div class="spec-icon w-11 h-11 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-3 transition-colors">
+                <i data-lucide="clock" class="w-5 h-5 text-green-600 transition-colors"></i>
+              </div>
+              <div class="font-black text-gray-900 text-lg">17 دقيقة</div>
+              <div class="text-xs text-gray-500 mt-1">وقت الطيران</div>
+            </div>
+            <div class="spec-card bg-white border border-gray-100 hover:border-green-200 hover:shadow-md rounded-2xl p-5 text-center transition-all">
+              <div class="spec-icon w-11 h-11 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-3 transition-colors">
+                <i data-lucide="trending-up" class="w-5 h-5 text-green-600 transition-colors"></i>
+              </div>
+              <div class="font-black text-gray-900 text-lg">220 كغ</div>
+              <div class="text-xs text-gray-500 mt-1">وزن الإقلاع</div>
+            </div>
+            <div class="spec-card bg-white border border-gray-100 hover:border-green-200 hover:shadow-md rounded-2xl p-5 text-center transition-all">
+              <div class="spec-icon w-11 h-11 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-3 transition-colors">
+                <i data-lucide="map" class="w-5 h-5 text-green-600 transition-colors"></i>
+              </div>
+              <div class="font-black text-gray-900 text-lg">RTK+GPS</div>
+              <div class="text-xs text-gray-500 mt-1">نظام التموضع</div>
+            </div>
+          </div>
+          <div class="mt-8 flex items-center gap-4">
+            <a href="#calculator" class="flex-1 bg-green-600 text-white font-bold py-4 rounded-2xl hover:bg-green-700 transition-colors flex items-center justify-center gap-2 shadow-lg scroll-link">
+              <i data-lucide="calculator" class="w-5 h-5"></i> احسب تكلفتك
+            </a>
+            <a href="https://wa.me/213673442856" target="_blank" rel="noreferrer"
+               class="flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold py-4 px-6 rounded-2xl hover:bg-[#1db954] transition-colors">
+              <i data-lucide="message-circle" class="w-5 h-5"></i> واتساب
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tech Cards -->
+      <div class="mt-8">
+        <div class="text-center mb-10">
+          <h3 class="text-3xl font-black text-gray-900 mb-2">التقنيات المدمجة</h3>
+          <p class="text-gray-500">نظرة داخل ما يجعل T100 الأقوى في فئتها</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <div class="tech-card bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+            <div class="relative h-48 overflow-hidden">
+              <img src="assets/drone-trees.png" alt="رش متعدد الاتجاهات" class="w-full h-full object-cover tech-img" />
+              <div class="absolute inset-0 bg-gradient-to-b from-cyan-500 to-blue-600 opacity-60"></div>
+              <div class="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/30">
+                <i data-lucide="droplets" class="w-5 h-5 text-white"></i>
+              </div>
+              <div class="absolute bottom-4 left-4 bg-white/95 text-gray-900 font-black text-sm px-3 py-1.5 rounded-full shadow-lg">40 L/min</div>
+            </div>
+            <div class="p-5">
+              <h4 class="font-black text-gray-900 text-lg mb-2">رش متعدد الاتجاهات</h4>
+              <p class="text-gray-500 text-sm leading-relaxed">4 رشاشات بمعدل تدفق 40 لتر/دقيقة، مع زيادة 65% في تغطية ما تحت الأوراق لحماية أعمق وأشمل.</p>
+            </div>
+          </div>
+
+          <div class="tech-card bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+            <div class="relative h-48 overflow-hidden">
+              <img src="assets/drone-crops.png" alt="عرض رش استثنائي" class="w-full h-full object-cover tech-img" />
+              <div class="absolute inset-0 bg-gradient-to-b from-green-500 to-emerald-600 opacity-60"></div>
+              <div class="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/30">
+                <i data-lucide="wind" class="w-5 h-5 text-white"></i>
+              </div>
+              <div class="absolute bottom-4 left-4 bg-white/95 text-gray-900 font-black text-sm px-3 py-1.5 rounded-full shadow-lg">5-13 م</div>
+            </div>
+            <div class="p-5">
+              <h4 class="font-black text-gray-900 text-lg mb-2">عرض رش استثنائي</h4>
+              <p class="text-gray-500 text-sm leading-relaxed">عرض رش فعّال من 5 إلى 13 متر بسرعة طيران تصل إلى 13.8 م/ث، بزيادة 36% في كفاءة العملية.</p>
+            </div>
+          </div>
+
+          <div class="tech-card bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+            <div class="relative h-48 overflow-hidden">
+              <img src="assets/drone-main.png" alt="رش دقيق فوق الحقول" class="w-full h-full object-cover object-top tech-img" />
+              <div class="absolute inset-0 bg-gradient-to-b from-yellow-400 to-orange-500 opacity-60"></div>
+              <div class="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/30">
+                <i data-lucide="scan-line" class="w-5 h-5 text-white"></i>
+              </div>
+              <div class="absolute bottom-4 left-4 bg-white/95 text-gray-900 font-black text-sm px-3 py-1.5 rounded-full shadow-lg">100 لتر</div>
+            </div>
+            <div class="p-5">
+              <h4 class="font-black text-gray-900 text-lg mb-2">رش دقيق فوق الحقول</h4>
+              <p class="text-gray-500 text-sm leading-relaxed">نظام رش عمودي دقيق يوزع المحاليل بتناسق مثالي فوق المحاصيل مع أقل قدر ممكن من الانجراف.</p>
+            </div>
+          </div>
+
+          <div class="tech-card bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+            <div class="relative h-48 overflow-hidden">
+              <img src="assets/drone-crops.png" alt="ذكاء اصطناعي متقدم" class="w-full h-full object-cover tech-img" />
+              <div class="absolute inset-0 bg-gradient-to-b from-purple-500 to-indigo-600 opacity-60"></div>
+              <div class="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/30">
+                <i data-lucide="cpu" class="w-5 h-5 text-white"></i>
+              </div>
+              <div class="absolute bottom-4 left-4 bg-white/95 text-gray-900 font-black text-sm px-3 py-1.5 rounded-full shadow-lg">AI Auto</div>
+            </div>
+            <div class="p-5">
+              <h4 class="font-black text-gray-900 text-lg mb-2">ذكاء اصطناعي متقدم</h4>
+              <p class="text-gray-500 text-sm leading-relaxed">معالج مدمج يحلل بيانات الحقل في الوقت الفعلي ويضبط معدل الرش تلقائياً حسب كثافة النبات وظروف الرياح.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Panoramic Strip -->
+      <div class="mt-14 rounded-3xl overflow-hidden relative shadow-2xl shadow-green-900/20">
+        <img src="assets/drone-crops.png" alt="طائرة T100 ترش فوق المحاصيل" class="w-full h-64 md:h-80 object-cover object-center" />
+        <div class="absolute inset-0 bg-gradient-to-r from-green-950/80 via-green-950/50 to-transparent"></div>
+        <div class="absolute inset-0 flex items-center px-8 md:px-16">
+          <div class="text-white max-w-lg">
+            <div class="text-sm font-bold text-green-300 mb-2">أداء لا مثيل له</div>
+            <div class="text-3xl md:text-4xl font-black leading-tight mb-4">36% زيادة في كفاءة العملية</div>
+            <div class="flex gap-8">
+              <div>
+                <div class="text-2xl font-black text-green-400">30 L/min</div>
+                <div class="text-sm text-gray-300">معدل التدفق</div>
+              </div>
+              <div>
+                <div class="text-2xl font-black text-green-400">13.8 م/ث</div>
+                <div class="text-sm text-gray-300">السرعة القصوى</div>
+              </div>
+              <div>
+                <div class="text-2xl font-black text-green-400">5-13 م</div>
+                <div class="text-sm text-gray-300">عرض الرش</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Banner -->
+      <div class="mt-16 bg-gradient-to-r from-green-700 to-emerald-800 rounded-3xl p-10 flex flex-col md:flex-row items-center justify-between gap-6 text-white">
+        <div>
+          <div class="text-2xl font-black mb-1">جاهز لتجربة T100 في حقلك؟</div>
+          <p class="text-green-200">احجز جلسة تجريبية ورأ الفرق بنفسك</p>
+        </div>
+        <div class="flex gap-3 flex-shrink-0">
+          <a href="#contact" class="bg-white text-green-700 font-black px-7 py-3.5 rounded-2xl hover:bg-green-50 transition-colors flex items-center gap-2 shadow-lg scroll-link">
+            <i data-lucide="phone" class="w-4 h-4"></i> احجز الآن
+          </a>
+          <a href="https://wa.me/213673442856" target="_blank" rel="noreferrer"
+             class="bg-[#25D366] text-white font-bold px-7 py-3.5 rounded-2xl hover:bg-[#1db954] transition-colors flex items-center gap-2">
+            <i data-lucide="message-circle" class="w-4 h-4"></i> واتساب
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       WHY US
+  ════════════════════════════════════ -->
+  <section id="why-us" class="py-28 bg-white relative overflow-hidden">
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-green-50 rounded-full blur-3xl opacity-70"></div>
+    <div class="absolute -bottom-20 -right-20 w-72 h-72 bg-emerald-50 rounded-full blur-3xl opacity-70"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="inline-block text-green-600 bg-green-50 border border-green-100 px-4 py-1 rounded-full text-sm font-bold mb-4">لماذا نحن؟</span>
+          <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-6">الخيار الأذكى<br /><span class="text-green-600">للمزارع الحديث</span></h2>
+          <p class="text-gray-500 text-lg leading-relaxed mb-10">في Thazmert، نجمع بين الخبرة الزراعية العميقة والتكنولوجيا المتقدمة لنقدم لك أفضل نتائج بأقل تكلفة وأسرع وقت.</p>
+          <a href="#contact" class="bg-green-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-green-700 transition-colors inline-flex items-center gap-2 shadow-lg scroll-link">
+            <i data-lucide="phone" class="w-5 h-5"></i> تواصل معنا الآن
+          </a>
+        </div>
+        <div class="grid grid-cols-2 gap-5">
+          <div class="why-card bg-gray-50 border border-gray-100 hover:border-green-200 rounded-2xl p-6 hover:shadow-lg transition-all">
+            <div class="why-icon w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4 transition-colors">
+              <i data-lucide="zap" class="w-6 h-6 text-green-600 transition-colors"></i>
+            </div>
+            <h4 class="font-black text-gray-900 text-lg mb-2">سرعة وكفاءة عالية</h4>
+            <p class="text-gray-500 text-sm leading-relaxed">الطائرة بدون طيار تُغطي ما يُعادل 40 هكتار في اليوم الواحد، مما يوفر وقتك وجهدك بشكل كبير.</p>
+          </div>
+          <div class="why-card bg-gray-50 border border-gray-100 hover:border-green-200 rounded-2xl p-6 hover:shadow-lg transition-all">
+            <div class="why-icon w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4 transition-colors">
+              <i data-lucide="shield" class="w-6 h-6 text-green-600 transition-colors"></i>
+            </div>
+            <h4 class="font-black text-gray-900 text-lg mb-2">دقة وأمان مضمون</h4>
+            <p class="text-gray-500 text-sm leading-relaxed">نظام GPS متطور يضمن توزيعاً دقيقاً للمواد مع الالتزام بأعلى معايير السلامة البيئية.</p>
+          </div>
+          <div class="why-card bg-gray-50 border border-gray-100 hover:border-green-200 rounded-2xl p-6 hover:shadow-lg transition-all">
+            <div class="why-icon w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4 transition-colors">
+              <i data-lucide="droplets" class="w-6 h-6 text-green-600 transition-colors"></i>
+            </div>
+            <h4 class="font-black text-gray-900 text-lg mb-2">توفير في المواد</h4>
+            <p class="text-gray-500 text-sm leading-relaxed">ترشيد استهلاك المبيدات والأسمدة بنسبة تصل إلى 30% مقارنةً بالطرق التقليدية.</p>
+          </div>
+          <div class="why-card bg-gray-50 border border-gray-100 hover:border-green-200 rounded-2xl p-6 hover:shadow-lg transition-all">
+            <div class="why-icon w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4 transition-colors">
+              <i data-lucide="clock" class="w-6 h-6 text-green-600 transition-colors"></i>
+            </div>
+            <h4 class="font-black text-gray-900 text-lg mb-2">خدمة على مدار الساعة</h4>
+            <p class="text-gray-500 text-sm leading-relaxed">فريقنا متاح للرد على استفساراتك وجدولة مواعيدك في أي وقت طوال أيام الأسبوع.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       STATS BAR
+  ════════════════════════════════════ -->
+  <div id="stats-bar" class="bg-green-700 py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-5xl font-black text-white mb-2"><span class="counter" data-target="500">0</span>+</div>
+          <div class="text-green-200 font-medium">هكتار مُعالج</div>
+        </div>
+        <div>
+          <div class="text-5xl font-black text-white mb-2"><span class="counter" data-target="120">0</span>+</div>
+          <div class="text-green-200 font-medium">عميل راضٍ</div>
+        </div>
+        <div>
+          <div class="text-5xl font-black text-white mb-2"><span class="counter" data-target="30">0</span>%</div>
+          <div class="text-green-200 font-medium">توفير في المواد</div>
+        </div>
+        <div>
+          <div class="text-5xl font-black text-white mb-2"><span class="counter" data-target="99">0</span>%</div>
+          <div class="text-green-200 font-medium">نسبة نجاح المهام</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       CALCULATOR & CONTACT FORM
+  ════════════════════════════════════ -->
+  <section id="calculator" class="py-28 relative overflow-hidden"
+           style="background: linear-gradient(135deg, #064e3b 0%, #065f46 40%, #047857 100%);">
+    <div class="absolute inset-0 opacity-5">
+      <img src="https://images.unsplash.com/photo-1585428311604-98738fc5687a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600" alt="" class="w-full h-full object-cover" />
+    </div>
+    <div class="absolute top-0 right-0 w-80 h-80 bg-green-400/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-72 h-72 bg-emerald-300/10 rounded-full blur-3xl"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="inline-block text-green-300 bg-green-800/50 border border-green-600/30 px-4 py-1 rounded-full text-sm font-bold mb-4">الأسعار والطلب</span>
+        <h2 class="text-4xl md:text-5xl font-black text-white mb-4">احسب تكلفتك بذكاء</h2>
+        <p class="text-green-200 text-lg max-w-2xl mx-auto">اختر الخدمة وحدد مساحتك لمعرفة التكلفة التقديرية الفورية، ثم أرسل طلبك مباشرة.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-5 gap-10 items-start max-w-6xl mx-auto">
+
+        <!-- Left: Price info -->
+        <div class="lg:col-span-2 text-white space-y-6">
+          <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-3xl p-7">
+            <h3 class="text-xl font-black mb-5">تفاصيل الأسعار</h3>
+            <div class="space-y-3" id="service-list">
+              <button class="service-btn w-full flex items-center justify-between p-4 rounded-2xl border transition-all bg-white text-gray-900 border-white shadow-lg" data-service="cultures">
+                <div class="flex items-center gap-3">
+                  <i data-lucide="leaf" class="w-5 h-5 text-green-600"></i>
+                  <span class="font-bold text-sm">رش المحاصيل</span>
+                </div>
+                <span class="font-black text-sm text-green-700">4,000 د.ج</span>
+              </button>
+              <button class="service-btn w-full flex items-center justify-between p-4 rounded-2xl border transition-all border-white/20 text-white hover:bg-white/10" data-service="fertilizer">
+                <div class="flex items-center gap-3">
+                  <i data-lucide="sprout" class="w-5 h-5 text-green-300"></i>
+                  <span class="font-bold text-sm">نثر الأسمدة</span>
+                </div>
+                <span class="font-black text-sm text-green-300">5,000 د.ج</span>
+              </button>
+              <button class="service-btn w-full flex items-center justify-between p-4 rounded-2xl border transition-all border-white/20 text-white hover:bg-white/10" data-service="trees">
+                <div class="flex items-center gap-3">
+                  <i data-lucide="tree-pine" class="w-5 h-5 text-green-300"></i>
+                  <span class="font-bold text-sm">رش الأشجار</span>
+                </div>
+                <span class="font-black text-sm text-green-300">6,000 د.ج</span>
+              </button>
+              <button class="service-btn w-full flex items-center justify-between p-4 rounded-2xl border transition-all border-white/20 text-white hover:bg-white/10" data-service="analysis">
+                <div class="flex items-center gap-3">
+                  <i data-lucide="flask-conical" class="w-5 h-5 text-green-300"></i>
+                  <span class="font-bold text-sm">تحليل التربة</span>
+                </div>
+                <span class="font-black text-sm text-green-300">7,500 د.ج</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Discount info -->
+          <div class="bg-green-800/40 border border-green-600/30 rounded-3xl p-6 space-y-3">
+            <div class="flex items-center gap-2 text-green-300">
+              <i data-lucide="award" class="w-5 h-5"></i>
+              <span class="font-bold">خصومات على المساحات الكبيرة</span>
+            </div>
+            <p class="text-green-200 text-sm">
+              &bull; من <strong>20 هكتار</strong>: خصم <strong>10%</strong><br />
+              &bull; من <strong>50 هكتار</strong>: خصم <strong>15%</strong>
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="lg:col-span-3">
+          <div id="contact" class="bg-white rounded-3xl shadow-2xl p-8">
+
+            <!-- Success State (hidden by default) -->
+            <div id="success-state" class="hidden text-center py-10 px-4">
+              <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i data-lucide="check-circle" class="w-12 h-12 text-green-600"></i>
+              </div>
+              <h3 class="text-3xl font-black text-gray-900 mb-3">تم استلام طلبك!</h3>
+              <p class="text-gray-500 text-lg mb-8 leading-relaxed">شكراً! سيتواصل معك فريقنا خلال 24 ساعة.</p>
+              <div class="bg-green-50 border border-green-100 rounded-2xl p-5 mb-8 text-right">
+                <div class="text-sm text-gray-500 mb-1">ملخص طلبك</div>
+                <div class="flex justify-between items-center">
+                  <span id="summary-service" class="text-gray-700 font-medium">—</span>
+                  <span id="summary-price" class="font-black text-green-700 text-xl">—</span>
+                </div>
+                <div id="summary-ha" class="text-sm text-gray-400">—</div>
+              </div>
+              <div class="flex gap-3 flex-col sm:flex-row">
+                <button id="new-request-btn" class="flex-1 bg-gray-100 text-gray-700 py-3 rounded-xl font-bold hover:bg-gray-200 transition-colors">طلب جديد</button>
+                <a href="https://wa.me/213673442856" target="_blank" rel="noreferrer"
+                   class="flex-1 bg-green-600 text-white py-3 rounded-xl font-bold hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                  <i data-lucide="message-circle" class="w-5 h-5"></i> واتساب مباشر
+                </a>
+              </div>
+            </div>
+
+            <!-- Contact Form -->
+            <form id="contact-form" class="space-y-5">
+              <div>
+                <h3 class="text-2xl font-black text-gray-900 mb-1">حاسبة الأسعار</h3>
+                <p class="text-gray-400 text-sm mb-5">أدخل بياناتك لمعرفة التكلفة وإرسال الطلب</p>
+              </div>
+
+              <!-- Service Select -->
+              <div>
+                <label class="block text-sm font-bold text-gray-700 mb-2">نوع الخدمة</label>
+                <select id="service-select" class="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none bg-gray-50 text-gray-800 font-medium">
+                  <option value="cultures">رش المحاصيل — 4,000 د.ج/هكتار</option>
+                  <option value="fertilizer">نثر الأسمدة — 5,000 د.ج/هكتار</option>
+                  <option value="trees">رش الأشجار — 6,000 د.ج/هكتار</option>
+                  <option value="analysis">تحليل التربة — 7,500 د.ج/هكتار</option>
+                </select>
+              </div>
+
+              <!-- Hectares -->
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label class="text-sm font-bold text-gray-700">المساحة بالهكتار</label>
+                  <div class="flex items-center gap-2">
+                    <button type="button" id="ha-minus" class="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-lg flex items-center justify-center text-gray-600 font-bold transition-colors text-lg">−</button>
+                    <input type="number" id="ha-input" min="1" max="500" value="5"
+                           class="w-20 text-center border border-gray-200 rounded-lg py-1.5 font-black text-gray-900 outline-none focus:ring-2 focus:ring-green-400" />
+                    <button type="button" id="ha-plus" class="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-lg flex items-center justify-center text-gray-600 font-bold transition-colors text-lg">+</button>
+                  </div>
+                </div>
+                <input type="range" id="ha-range" min="1" max="100" value="5" class="range-slider w-full h-2 bg-gray-200 rounded-full appearance-none cursor-pointer" />
+                <div class="flex justify-between text-xs text-gray-400 mt-1">
+                  <span>1 هكتار</span><span>50</span><span>100+</span>
+                </div>
+              </div>
+
+              <!-- Price Display -->
+              <div class="bg-gradient-to-r from-green-600 to-emerald-700 rounded-2xl p-5 text-white">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <p class="text-green-100 text-sm mb-1">التكلفة التقديرية</p>
+                    <div class="flex items-end gap-2">
+                      <span id="price-display" class="text-4xl font-black">20,000</span>
+                      <span class="text-green-200 font-bold mb-1">د.ج</span>
+                    </div>
+                    <div id="discount-row" class="hidden flex items-center gap-2 mt-1">
+                      <span id="original-price" class="line-through text-green-300 text-sm"></span>
+                      <span id="discount-badge" class="bg-yellow-400 text-yellow-900 text-xs font-black px-2 py-0.5 rounded-full"></span>
+                    </div>
+                  </div>
+                  <div class="text-left">
+                    <p id="price-service-label" class="text-green-200 text-xs">رش المحاصيل</p>
+                    <p id="price-ha-label" class="text-green-100 text-sm font-bold">5 هكتار</p>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="border-gray-100" />
+
+              <!-- Name + Phone -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-bold text-gray-700 mb-2">الاسم الكامل <span class="text-red-400">*</span></label>
+                  <input type="text" id="name-input" required placeholder="أدخل اسمك الكريم"
+                         class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none bg-gray-50" />
+                </div>
+                <div>
+                  <label class="block text-sm font-bold text-gray-700 mb-2">رقم الهاتف <span class="text-red-400">*</span></label>
+                  <input type="tel" id="phone-input" required dir="ltr" placeholder="+213 XX XX XX XX"
+                         class="w-full text-right px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none bg-gray-50" />
+                </div>
+              </div>
+
+              <!-- Wilaya -->
+              <div>
+                <label class="block text-sm font-bold text-gray-700 mb-2">الولاية / المنطقة</label>
+                <input type="text" id="wilaya-input" placeholder="مثال: قسنطينة، باتنة، سطيف..."
+                       class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none bg-gray-50" />
+              </div>
+
+              <!-- Message -->
+              <div>
+                <label class="block text-sm font-bold text-gray-700 mb-2">تفاصيل إضافية (اختياري)</label>
+                <textarea id="message-input" rows="3" placeholder="نوع المحصول، أي تفاصيل أخرى تريد إضافتها..."
+                          class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none bg-gray-50 resize-none"></textarea>
+              </div>
+
+              <!-- Error -->
+              <div id="form-error" class="hidden text-red-500 text-sm bg-red-50 border border-red-100 rounded-xl px-4 py-3"></div>
+
+              <!-- Submit buttons -->
+              <div class="flex flex-col sm:flex-row gap-3 pt-1">
+                <button type="submit"
+                        class="flex-1 bg-green-600 text-white font-black text-lg py-4 rounded-2xl hover:bg-green-700 transition-colors shadow-lg flex items-center justify-center gap-2">
+                  إرسال الطلب
+                  <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                </button>
+                <a id="whatsapp-calc-link" href="https://wa.me/213673442856" target="_blank" rel="noreferrer"
+                   class="flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold py-4 px-6 rounded-2xl hover:bg-[#20c15d] transition-colors">
+                  <i data-lucide="message-circle" class="w-5 h-5"></i> واتساب
+                </a>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       FAQ
+  ════════════════════════════════════ -->
+  <section id="faq" class="py-28 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="inline-block text-green-600 bg-green-50 border border-green-100 px-4 py-1 rounded-full text-sm font-bold mb-4">الأسئلة الشائعة</span>
+        <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">كل ما تريد معرفته</h2>
+        <div class="w-16 h-1.5 bg-green-500 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="space-y-3" id="faq-container">
+
+        <div class="faq-item bg-white rounded-2xl border border-gray-100 overflow-hidden transition-all duration-200">
+          <button class="faq-btn w-full flex items-center justify-between p-6 text-right">
+            <span class="font-bold text-gray-900 text-lg">ما هي المساحة الدنيا للخدمة؟</span>
+            <div class="faq-icon w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mr-4 bg-gray-100 text-gray-500 transition-colors">
+              <span class="text-lg font-bold leading-none toggle-symbol">+</span>
+            </div>
+          </button>
+          <div class="faq-answer hidden px-6 pb-6">
+            <p class="text-gray-500 leading-relaxed">نقبل الطلبات ابتداءً من هكتار واحد. ولكن كلما زادت المساحة، كلما أصبح السعر أكثر تنافسية.</p>
+          </div>
+        </div>
+
+        <div class="faq-item bg-white rounded-2xl border border-gray-100 overflow-hidden transition-all duration-200">
+          <button class="faq-btn w-full flex items-center justify-between p-6 text-right">
+            <span class="font-bold text-gray-900 text-lg">كم تستغرق عملية الرش؟</span>
+            <div class="faq-icon w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mr-4 bg-gray-100 text-gray-500 transition-colors">
+              <span class="text-lg font-bold leading-none toggle-symbol">+</span>
+            </div>
+          </button>
+          <div class="faq-answer hidden px-6 pb-6">
+            <p class="text-gray-500 leading-relaxed">تعتمد المدة على المساحة ونوع الخدمة. في المتوسط، تُغطي طائراتنا 5-8 هكتار في الساعة.</p>
+          </div>
+        </div>
+
+        <div class="faq-item bg-white rounded-2xl border border-gray-100 overflow-hidden transition-all duration-200">
+          <button class="faq-btn w-full flex items-center justify-between p-6 text-right">
+            <span class="font-bold text-gray-900 text-lg">هل تعملون في كل مناطق الجزائر؟</span>
+            <div class="faq-icon w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mr-4 bg-gray-100 text-gray-500 transition-colors">
+              <span class="text-lg font-bold leading-none toggle-symbol">+</span>
+            </div>
+          </button>
+          <div class="faq-answer hidden px-6 pb-6">
+            <p class="text-gray-500 leading-relaxed">نحن مقيمون في قسنطينة ونغطي المنطقة الشرقية بشكل كامل. للمناطق البعيدة، يُرجى الاتصال بنا لمناقشة التفاصيل.</p>
+          </div>
+        </div>
+
+        <div class="faq-item bg-white rounded-2xl border border-gray-100 overflow-hidden transition-all duration-200">
+          <button class="faq-btn w-full flex items-center justify-between p-6 text-right">
+            <span class="font-bold text-gray-900 text-lg">ما هي المبيدات التي تستخدمونها؟</span>
+            <div class="faq-icon w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mr-4 bg-gray-100 text-gray-500 transition-colors">
+              <span class="text-lg font-bold leading-none toggle-symbol">+</span>
+            </div>
+          </button>
+          <div class="faq-answer hidden px-6 pb-6">
+            <p class="text-gray-500 leading-relaxed">نستخدم المبيدات التي يوفرها العميل، ويمكننا كذلك الاستعانة بموردين معتمدين حسب الطلب.</p>
+          </div>
+        </div>
+
+        <div class="faq-item bg-white rounded-2xl border border-gray-100 overflow-hidden transition-all duration-200">
+          <button class="faq-btn w-full flex items-center justify-between p-6 text-right">
+            <span class="font-bold text-gray-900 text-lg">كيف أحجز الخدمة؟</span>
+            <div class="faq-icon w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mr-4 bg-gray-100 text-gray-500 transition-colors">
+              <span class="text-lg font-bold leading-none toggle-symbol">+</span>
+            </div>
+          </button>
+          <div class="faq-answer hidden px-6 pb-6">
+            <p class="text-gray-500 leading-relaxed">يمكنك تعبئة النموذج أدناه أو الاتصال بنا مباشرة على الرقم <span dir="ltr">+213 673 442 856</span> وسنحدد معك الموعد الأنسب.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       CTA BANNER
+  ════════════════════════════════════ -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-3xl p-12 text-center text-white relative overflow-hidden"
+           style="background: linear-gradient(135deg, #16a34a 0%, #065f46 100%);">
+        <div class="absolute inset-0 opacity-10">
+          <img src="https://images.unsplash.com/photo-1585428311604-98738fc5687a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200"
+               alt="" class="w-full h-full object-cover" />
+        </div>
+        <div class="relative z-10">
+          <h2 class="text-4xl font-black mb-4">هل أنت مستعد للبدء؟</h2>
+          <p class="text-green-100 text-lg mb-8 max-w-2xl mx-auto">احجز خدمتك اليوم واستمتع بأفضل حلول الرش الزراعي في الجزائر. الحجز سريع ومجاني.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#calculator" class="bg-white text-green-700 font-black px-8 py-4 rounded-2xl hover:bg-green-50 transition-colors inline-flex items-center gap-2 shadow-xl scroll-link">
+              <i data-lucide="calculator" class="w-5 h-5"></i> احسب تكلفتك
+            </a>
+            <a href="tel:+213673442856" class="bg-green-800/50 border border-green-600/50 text-white font-bold px-8 py-4 rounded-2xl hover:bg-green-800/70 transition-colors inline-flex items-center gap-2">
+              <i data-lucide="phone" class="w-5 h-5"></i>
+              <span dir="ltr">+213 673 442 856</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════ -->
+  <footer class="bg-gray-950 text-gray-400 pt-20 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+
+        <!-- Brand -->
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-3 mb-6">
+            <img src="assets/logo.png" alt="Thazmert Logo" class="w-12 h-12 object-contain" />
+            <div>
+              <div class="font-black text-3xl text-white">Thazmert</div>
+              <div class="text-green-400 text-sm">خدمات الرش الزراعي بالطائرات</div>
+            </div>
+          </div>
+          <p class="text-gray-500 max-w-sm leading-relaxed mb-8">شركة جزائرية متخصصة في خدمات الرش الزراعي بالطائرات بدون طيار. نغطي المنطقة الشرقية ونسعى دائماً لتقديم أفضل الحلول الزراعية الذكية.</p>
+          <a href="https://wa.me/213673442856" target="_blank" rel="noreferrer"
+             class="inline-flex items-center gap-2 bg-[#25D366] text-white font-bold px-5 py-2.5 rounded-xl hover:bg-[#20c15d] transition-colors text-sm">
+            <i data-lucide="message-circle" class="w-4 h-4"></i> تواصل عبر واتساب
+          </a>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="text-white font-black text-lg mb-6">معلومات التواصل</h4>
+          <ul class="space-y-4">
+            <li>
+              <a href="tel:+213673442856" class="flex items-center gap-3 hover:text-green-400 transition-colors footer-contact-link">
+                <div class="contact-icon w-9 h-9 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
+                  <i data-lucide="phone" class="w-4 h-4"></i>
+                </div>
+                <span dir="ltr" class="font-medium">+213 673 442 856</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:amirdib51@gmail.com" class="flex items-center gap-3 hover:text-green-400 transition-colors footer-contact-link">
+                <div class="contact-icon w-9 h-9 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
+                  <i data-lucide="mail" class="w-4 h-4"></i>
+                </div>
+                <span class="font-medium break-all">amirdib51@gmail.com</span>
+              </a>
+            </li>
+            <li>
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="map-pin" class="w-4 h-4"></i>
+                </div>
+                <span class="font-medium">قسنطينة، الجزائر</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-white font-black text-lg mb-6">روابط سريعة</h4>
+          <ul class="space-y-3">
+            <li><a href="#home"       class="flex items-center gap-2 hover:text-green-400 transition-colors font-medium scroll-link"><i data-lucide="arrow-left" class="w-3 h-3 text-green-600"></i>الرئيسية</a></li>
+            <li><a href="#services"   class="flex items-center gap-2 hover:text-green-400 transition-colors font-medium scroll-link"><i data-lucide="arrow-left" class="w-3 h-3 text-green-600"></i>خدماتنا</a></li>
+            <li><a href="#drone"      class="flex items-center gap-2 hover:text-green-400 transition-colors font-medium scroll-link"><i data-lucide="arrow-left" class="w-3 h-3 text-green-600"></i>الطائرة T100</a></li>
+            <li><a href="#why-us"     class="flex items-center gap-2 hover:text-green-400 transition-colors font-medium scroll-link"><i data-lucide="arrow-left" class="w-3 h-3 text-green-600"></i>لماذا نحن؟</a></li>
+            <li><a href="#calculator" class="flex items-center gap-2 hover:text-green-400 transition-colors font-medium scroll-link"><i data-lucide="arrow-left" class="w-3 h-3 text-green-600"></i>الأسعار</a></li>
+            <li><a href="#faq"        class="flex items-center gap-2 hover:text-green-400 transition-colors font-medium scroll-link"><i data-lucide="arrow-left" class="w-3 h-3 text-green-600"></i>الأسئلة الشائعة</a></li>
+            <li><a href="#contact"    class="flex items-center gap-2 hover:text-green-400 transition-colors font-medium scroll-link"><i data-lucide="arrow-left" class="w-3 h-3 text-green-600"></i>طلب خدمة</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600">
+        <p>© 2026 Thazmert — جميع الحقوق محفوظة.</p>
+        <p>صُمِّم بشغف للزراعة الذكية في الجزائر 🇩🇿</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

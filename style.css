@@ -1,0 +1,248 @@
+/* ═══════════════════════════════════════════════
+   Thazmert — Custom Stylesheet
+   Complements Tailwind CSS CDN
+═══════════════════════════════════════════════ */
+
+/* ── Font & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Tajawal', sans-serif;
+  direction: rtl;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Pulse animation (live indicator) ── */
+@keyframes pulse-ring {
+  0%   { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
+  70%  { transform: scale(1);    box-shadow: 0 0 0 8px rgba(74, 222, 128, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+}
+.pulse-dot { animation: pulse-ring 2s infinite; }
+
+/* ── Bounce animation (scroll indicator) ── */
+@keyframes bounce-ud {
+  0%, 100% { transform: translateY(0) translateX(-50%); }
+  50%       { transform: translateY(-10px) translateX(-50%); }
+}
+.bounce-anim { animation: bounce-ud 2s ease-in-out infinite; }
+
+/* ══════════════════════════════════════════
+   NAVBAR
+══════════════════════════════════════════ */
+#navbar.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 20px rgba(5, 46, 22, 0.08);
+}
+
+/* Logo text color when scrolled */
+#navbar.scrolled #logo-name { color: #14532d; }
+#navbar.scrolled #logo-sub  { color: #16a34a; }
+
+/* Mobile toggle color when scrolled */
+#navbar.scrolled #menu-toggle { color: #374151; }
+#navbar.scrolled #menu-toggle:hover { background: #f3f4f6; }
+
+/* Nav links when scrolled */
+#navbar.scrolled .nav-link {
+  color: #4b5563;
+}
+#navbar.scrolled .nav-link:hover {
+  color: #16a34a;
+  background: #f0fdf4;
+}
+#navbar.scrolled .nav-link.active {
+  background: #16a34a;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(22, 163, 74, 0.25);
+}
+
+/* Nav link active (transparent bg) */
+.nav-link.active {
+  background: #16a34a;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(22, 163, 74, 0.25);
+}
+
+/* ══════════════════════════════════════════
+   RANGE SLIDER
+══════════════════════════════════════════ */
+.range-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 99px;
+  outline: none;
+  cursor: pointer;
+}
+
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #16a34a;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.4);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.range-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.5);
+}
+
+.range-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #16a34a;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.4);
+}
+
+/* ══════════════════════════════════════════
+   SERVICE CARDS (hover zoom on image)
+══════════════════════════════════════════ */
+.service-card .card-img {
+  transition: transform 0.5s ease;
+}
+.service-card:hover .card-img {
+  transform: scale(1.05);
+}
+
+/* ══════════════════════════════════════════
+   TECH CARDS
+══════════════════════════════════════════ */
+.tech-card .tech-img {
+  transition: transform 0.5s ease;
+}
+.tech-card:hover .tech-img {
+  transform: scale(1.05);
+}
+
+/* ══════════════════════════════════════════
+   SPEC CARDS (hover icon color flip)
+══════════════════════════════════════════ */
+.spec-card:hover .spec-icon {
+  background-color: #16a34a;
+}
+.spec-card:hover .spec-icon svg,
+.spec-card:hover .spec-icon i {
+  color: #ffffff;
+  stroke: #ffffff;
+}
+
+/* ══════════════════════════════════════════
+   WHY US CARDS
+══════════════════════════════════════════ */
+.why-card:hover .why-icon {
+  background-color: #16a34a;
+}
+.why-card:hover .why-icon svg,
+.why-card:hover .why-icon i {
+  color: #ffffff;
+  stroke: #ffffff;
+}
+
+/* ══════════════════════════════════════════
+   FAQ ACCORDION
+══════════════════════════════════════════ */
+.faq-item {
+  border: 1px solid #f3f4f6;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.faq-item.open {
+  border-color: #bbf7d0;
+  box-shadow: 0 4px 20px rgba(22, 163, 74, 0.06);
+}
+
+.faq-btn { cursor: pointer; background: none; border: none; width: 100%; }
+
+.faq-icon {
+  transition: background-color 0.2s, color 0.2s;
+  min-width: 32px;
+}
+
+.faq-item.open .faq-icon {
+  background-color: #16a34a;
+  color: #ffffff;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.faq-answer.open {
+  max-height: 300px;
+}
+
+/* ══════════════════════════════════════════
+   FOOTER CONTACT HOVER
+══════════════════════════════════════════ */
+.footer-contact-link:hover .contact-icon {
+  background-color: #16a34a;
+}
+
+/* ══════════════════════════════════════════
+   CALCULATOR SERVICE BUTTONS
+══════════════════════════════════════════ */
+.service-btn {
+  text-align: right;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.service-btn.active {
+  background: #ffffff;
+  color: #111827;
+  border-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.service-btn.active .icon-in-btn { color: #16a34a; }
+.service-btn.active .price-in-btn { color: #15803d; }
+
+/* ══════════════════════════════════════════
+   SCROLLBAR (optional cosmetic)
+══════════════════════════════════════════ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #16a34a; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #15803d; }
+
+/* ══════════════════════════════════════════
+   UTILITY HELPERS
+══════════════════════════════════════════ */
+.hidden { display: none !important; }
+
+/* Focus styles for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #16a34a;
+  outline-offset: 2px;
+}
+
+/* Smooth image loading */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Selection color */
+::selection {
+  background: #dcfce7;
+  color: #14532d;
+}
